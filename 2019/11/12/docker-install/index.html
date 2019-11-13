@@ -84,13 +84,13 @@
                     
                         <span>
                         <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                        2.5k
+                        3.5k
                     </span>
                     
                     
                         <span>
                         <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                        2 mins.
+                        3 mins.
                     </span>
                     
                     
@@ -131,18 +131,31 @@
 <h1 id="docker-安装"><a href="#docker-安装" class="headerlink" title="docker 安装"></a>docker 安装</h1><h2 id="安装包的选择及下载（-windows-和-macOS-）"><a href="#安装包的选择及下载（-windows-和-macOS-）" class="headerlink" title="安装包的选择及下载（ windows 和 macOS ）"></a>安装包的选择及下载（ windows 和 macOS ）</h2><p>翻看 docker <a href="https://docs.docker.com/" target="_blank" rel="noopener">官方文档</a>，可以发现 docker 有两种安装方式，一种是安装 <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank" rel="noopener">Docker Desktop</a>，一种是安装 <a href="https://docs.docker.com/toolbox/toolbox_install_windows/" target="_blank" rel="noopener">Docker Toolbox</a>，那么如何选择？</p>
 <p>以下对不同系统进行说明</p>
 <h3 id="windows-安装"><a href="#windows-安装" class="headerlink" title="windows 安装"></a>windows 安装</h3><blockquote>
-<p>如果操作系统是 windows10 和 windows8.1，请直接下载 <a href="https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe" target="_blank" rel="noopener">Docker Desktop for Windows </a></p>
+<p>如果操作系统是 windows10 和 windows8.1，请直接下载 <a href="https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe" target="_blank" rel="noopener">Docker Desktop for Windows </a>。</p>
 </blockquote>
 <blockquote>
-<p>如果操作系统是 windows7 和 windows8，请在 docker-toolbox 的 <a href="https://github.com/docker/toolbox/releases" target="_blank" rel="noopener">github</a> 页面下载最新的 Docker Toolbox for Windows</p>
+<p>如果操作系统是 windows7 和 windows8，请在 docker-toolbox 的 <a href="https://github.com/docker/toolbox/releases" target="_blank" rel="noopener">github</a> 页面下载最新的 Docker Toolbox for Windows。</p>
 </blockquote>
 <h3 id="macOS-安装"><a href="#macOS-安装" class="headerlink" title="macOS 安装"></a>macOS 安装</h3><blockquote>
-<p>如果操作系统版本在 10.13 及以上，请直接下载 <a href="https://download.docker.com/mac/stable/Docker.dmg" target="_blank" rel="noopener">Docker Desktop for MacOS </a></p>
+<p>如果操作系统版本在 10.13 及以上，请直接下载 <a href="https://download.docker.com/mac/stable/Docker.dmg" target="_blank" rel="noopener">Docker Desktop for MacOS </a>。</p>
 </blockquote>
 <blockquote>
-<p>如果是其他操作系统版本，请在 docker-toolbox 的 <a href="https://github.com/docker/toolbox/releases" target="_blank" rel="noopener">github</a> 页面下载最新的 Docker Toolbox for Windows</p>
+<p>如果是其他操作系统版本，请在 docker-toolbox 的 <a href="https://github.com/docker/toolbox/releases" target="_blank" rel="noopener">github</a> 页面下载最新的 Docker Toolbox for Windows。</p>
 </blockquote>
-<p><strong>PS:</strong> 本人手里只有 windows 和 macOS</p>
+<p><strong>P.S.</strong> 本人手里只有 windows 和 macOS</p>
+<h1 id="出现的问题及解决方案"><a href="#出现的问题及解决方案" class="headerlink" title="出现的问题及解决方案"></a>出现的问题及解决方案</h1><h2 id="windows-系统与其他虚拟机共存"><a href="#windows-系统与其他虚拟机共存" class="headerlink" title="windows 系统与其他虚拟机共存"></a>windows 系统与其他虚拟机共存</h2><p>如果在 windows 中安装有其他虚拟机，如 vmware workstation，在安装 docker desktop 之后会导致虚拟机无法使用。</p>
+<p><strong>问题原因：</strong> 这个主要原因是 docker desktop 开启了 <code>hyper-v</code>，其会占用 cpu 虚拟化接口，导致其他虚拟机无法完成虚拟化。</p>
+<p><strong>解决方案：</strong></p>
+<ol>
+<li><p>依次打开<code>控制面板</code> - <code>卸载程序</code> - <code>启用或关闭 Windows 功能</code>。如下图所示，关闭 <code>hyper-v</code>；</p>
+<p><img src="/img/CloseHyperV.jpg" alt="关闭操作" title="关闭Hyper-V"></p>
+</li>
+<li><p>卸载 docker desktop；</p>
+</li>
+<li><p>在 docker-toolbox 的 <a href="https://github.com/docker/toolbox/releases" target="_blank" rel="noopener">github</a> 页面下载最新的 Docker Toolbox for Windows 进行安装。</p>
+</li>
+</ol>
+<p><strong>P.S.</strong> 卸载后可能出现虚拟机仍然不能使用，依次进入<code>控制面板</code> - <code>卸载程序</code>修复即可</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
@@ -184,7 +197,7 @@
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#docker-介绍"><span class="toc-number">1.</span> <span class="toc-text">docker 介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-docker-的好处"><span class="toc-number">1.2.</span> <span class="toc-text">使用 docker 的好处</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#docker-安装"><span class="toc-number">2.</span> <span class="toc-text">docker 安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装包的选择及下载（-windows-和-macOS-）"><span class="toc-number">2.1.</span> <span class="toc-text">安装包的选择及下载（ windows 和 macOS ）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#windows-安装"><span class="toc-number">2.1.1.</span> <span class="toc-text">windows 安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#macOS-安装"><span class="toc-number">2.1.2.</span> <span class="toc-text">macOS 安装</span></a></li></ol></li></ol></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#docker-介绍"><span class="toc-number">1.</span> <span class="toc-text">docker 介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-docker-的好处"><span class="toc-number">1.2.</span> <span class="toc-text">使用 docker 的好处</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#docker-安装"><span class="toc-number">2.</span> <span class="toc-text">docker 安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装包的选择及下载（-windows-和-macOS-）"><span class="toc-number">2.1.</span> <span class="toc-text">安装包的选择及下载（ windows 和 macOS ）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#windows-安装"><span class="toc-number">2.1.1.</span> <span class="toc-text">windows 安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#macOS-安装"><span class="toc-number">2.1.2.</span> <span class="toc-text">macOS 安装</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#出现的问题及解决方案"><span class="toc-number">3.</span> <span class="toc-text">出现的问题及解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#windows-系统与其他虚拟机共存"><span class="toc-number">3.1.</span> <span class="toc-text">windows 系统与其他虚拟机共存</span></a></li></ol></li></ol>
                         </div>
                     </div>
                 
